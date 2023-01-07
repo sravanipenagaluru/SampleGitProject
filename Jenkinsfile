@@ -18,5 +18,16 @@ pipeline {
         bat 'mvn verify -DskipUnitTests'
       }
     }
+    stage ('Build') {
+     steps {
+        bat 'mvn clean install'
+      }
+     }
+    stage ('Sonar') {
+     steps {
+       bat 'mvn clean package sonar:sonar'
+     }
+    }
+
   }
 }
