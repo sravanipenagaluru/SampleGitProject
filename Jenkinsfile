@@ -28,6 +28,11 @@ pipeline {
        bat 'mvn clean package sonar:sonar'
      }
     }
+    stage ('Quality Gates') {
+     steps {
+       waitForQualityGate abortPipeline: false
+     }
+    }
 
   }
 }
