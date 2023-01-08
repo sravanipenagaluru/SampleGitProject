@@ -37,13 +37,13 @@ pipeline {
        //waitForQualityGate abortPipeline: True
      //}
    // }
-   stage('Nexus artificats uploader') {
+   /*stage('Nexus artificats uploader') {
      steps {
        script {
          nexusArtifactUploader artifacts: [[artifactId: 'helloworld', classifier: '', file: 'target/helloworld-1.1.jar', type: 'jar']], credentialsId: 'nexus', groupId: 'com.coveros.demo', nexusUrl: 'localhost:8081/nexus/', nexusVersion: 'nexus2', protocol: 'http', repository: 'Maven_Release', version: '1.1'
        }
      }
-    }
+    } */
 
   }
 }
