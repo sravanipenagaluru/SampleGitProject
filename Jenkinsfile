@@ -26,7 +26,7 @@ pipeline {
     stage ('Sonar') {
      steps {
      script {
-       withSonarQubeEnv(credentialsId: 'SonarToken1') {
+       withSonarQubeEnv('SonarQube') {
              bat 'mvn clean package sonar:sonar'
 	     }
 	    }
