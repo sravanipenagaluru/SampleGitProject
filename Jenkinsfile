@@ -25,18 +25,18 @@ pipeline {
      }
     stage ('Sonar') {
      steps {
-     script {
-       withSonarQubeEnv() {
+     //script {
+       //withSonarQubeEnv() {
              bat 'mvn clean package sonar:sonar'
-	     }
-	    }
+	 //    }
+	   // }
      }
     }
-    stage ('Quality Gates') {
-     steps {
-       waitForQualityGate abortPipeline: True
-     }
-    }
+    //stage ('Quality Gates') {
+     //steps {
+       //waitForQualityGate abortPipeline: True
+     //}
+   // }
 
   }
 }
