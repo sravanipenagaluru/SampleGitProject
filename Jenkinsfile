@@ -44,6 +44,14 @@ pipeline {
        }
      }
     } */
-
+     stage ('Docker Image Build') {
+	steps {
+	    script {
+	      bat 'docker image build -t $JOB_NAME:V1.$BUILD_ID .'
+	      bat 'docker image tag $JOB_NAME:V1.$BUILD_ID 747373/$JOB_NAME:V1.$BUILD_ID'
+	      bat 'docker image tag $JOB_NAME:V1.$BUILD_ID 747373/$JOB_NAME:V1.latest'
+	    }
+	}
+     }
   }
 }
