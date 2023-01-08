@@ -25,9 +25,11 @@ pipeline {
      }
     stage ('Sonar') {
      steps {
+     script {
        withSonarQubeEnv(credentialsId: 'SonarToken1') {
              bat 'mvn clean package sonar:sonar'
 	     }
+	    }
      }
     }
     stage ('Quality Gates') {
